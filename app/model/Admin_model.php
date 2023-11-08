@@ -2,46 +2,47 @@
 
 class Admin_model{
     private $db;
-    private $tabel = 'manageuser';
+    private $tabel = 'manageadmin';
 
     public function __construct(){
         $this->db = new Database;
     }
-    public function addUser($data){
-        $query = "INSERT INTO ".$this->tabel." VALUES (NULL,:username,:position)";
+    public function addAdmin($data){
+        $query = "INSERT INTO ".$this->tabel." VALUES (NULL,:nama,:jabatan)";
 
         $this->db->query($query);
-        $this->db->bind('username',$data['username']);
-        $this->db->bind('position',$data['position']);
+        $this->db->bind('nama',$data['nama']);
+        $this->db->bind('jabatan',$data['jabatan']);
 
         $this->db->execute();
 
-        return $this->db->getAll();
+        return $this->db->rowCount();
     }
-    public function deleteUser($id){
-        $query = "DELETE FROM" .$this->tabel. "WHERE idmanageuser=:idmanageuser";
+    public function deleteAdmin($id_manageadmin){
+        $query = "DELETE FROM " .$this->tabel. " WHERE id_manageadmin=:id_manageadmin";
         $this->db->query($query);
-        $this->db->bind('idmanageuser',$id);
-        return $this->db->execute();
+        $this->db->bind('id_manageadmin',$id_manageadmin);
+        $this->db->execute();
+        return $this->db->rowCount();
     }
-    public function editUser($data){
-        $query = "UPDATE ".$this->tabel. "SET username = :username AND position = :position";
+    public function editAdmin($data){
+        $query = "UPDATE ".$this->tabel. "SET nama = :nama AND jabatan = :jabatan";
 
         $this->db->query($query);
-        $this->db->bind('username',$data['username']);
-        $this->db->bind('position',$data['position']);
+        $this->db->bind('nama',$data['nama']);
+        $this->db->bind('jabatan',$data['jabatan']);
 
         $this->db->execute();
     }
-    public function getAllUser(){
+    public function getAllAdmin(){
         $query = "SELECT * FROM ".$this->tabel."";
         $this->db->query($query);
         return $this->db->getAll();
     }
-    public function getIdUser($id){
-        $query = "SELECT * FROM" .$this->tabel. "WHERE idmanageuser = :idmanageuser";
+    public function getIdAdmin($id){
+        $query = "SELECT * FROM " .$this->tabel. " WHERE id_manageadmin = :id_managadmin";
         $this->db->query($query);
-        $this->db->bind('idmanageuser',$id);
+        $this->db->bind('id_manageadmin',$id);
         return $this->db->getSingle();
 
     }

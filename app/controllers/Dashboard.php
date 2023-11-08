@@ -14,15 +14,15 @@ class Dashboard extends Controller{
 
         $data['judul'] = 'Dashboard';
 
-        $data['user'] = $this->model('Admin_model')->getAllUser();
+        $data['user'] = $this->model('Admin_model')->getAllAdmin();
 
         $this->view('tamplates/header1', $data);
-        $this->view('dashboard/index');
+        $this->view('dashboard/index', $data);
         $this->view('tamplates/footer');
     }
 
-    public function addNewUser(){
-        if($this->model('User_model')->addUser($_POST) > 0){
+    public function addNewAdmin(){
+        if($this->model('Admin_model')->addAdmin($_POST) > 0){
             echo "
             <script>
                 alert('Data berhasil ditambahkan');
@@ -32,7 +32,15 @@ class Dashboard extends Controller{
         exit;
         }
     }
-    public function a(){
-    
+    public function delete($id_manageadmin){
+        if($this->model('Admin_model')->deleteAdmin($id_manageadmin) > 0){
+            echo "
+                <script>
+                    alert('Data berhasil dihapus');
+                    window.location.href = '". BASEURL ."/dashboard';
+                </script>
+            ";
+            exit;
+        }
     }
 }

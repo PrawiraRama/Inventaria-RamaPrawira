@@ -22,7 +22,7 @@ class Login_model {
     {
         $this->db->query('SELECT * FROM ' . $this->tabel . ' WHERE username =:username');
         $this->db->bind('username', $username);
-        return $this->db->singel();
+        return $this->db->getSingle();
     }
 
 }

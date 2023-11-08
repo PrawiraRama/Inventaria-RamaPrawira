@@ -19,7 +19,7 @@
                 <div class="col-2">
                     <div class="sidebar-design">
                         <div class="logo d-flex justify-content-center">
-                            <img src="<?= BASEURL ?>/img/MeliTiket.comIcon.png" alt="Inventaria Logo" srcset="">
+                            <img src="<?= BASEURL ?>/img/" alt="LOGOx" srcset="">
                         </div>
                         <div class="container-sm">
                             <div class="menu-design d-flex flex-column">
