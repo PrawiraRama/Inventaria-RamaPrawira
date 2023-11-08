@@ -26,8 +26,8 @@
                                 <div class="dasboard-design">
                                     <hr class="line-fill">
                                     <a href="<?= BASEURL ?>/dashboard" class="dasboard ">
-                                        <i class="fa-solid fa-gauge"></i>
-                                        Dashboard
+                                        <i class="fa-solid fa-user"></i>
+                                        User
                                     </a>
                                     <hr class="line-fill">
                                 </div>
