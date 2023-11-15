@@ -23,7 +23,7 @@
     <div class="container">
         <!-- Content Row -->
 
-        <h1 class="h3 mb-0 text-gray-800 mt-2">Dashboard Use</h1>
+        <h1 class="h3 mb-0 text-gray-800 mt-4">Dashboard User</h1>
         
         <div class="row mt-4">
 
@@ -32,12 +32,13 @@
             <!-- Card Content Start -->
             <!-- Card 1 -->
             <?php foreach ($data['user'] as $user) : ?>
-            <div class="col-xl-3 col-md-6 mb-4">
+            <div class="col-xl-3 col-md-6 mb-4 text-center">
                 <div class="card border-border-right-primary shadow h-100 py-2">
                     <div class="card-body">
+                    <i class="fa-solid fa-circle-user fa-3x"></i>
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
-                                <div class="text-l font-weight-bold text-uppercase mb-1 d-flex">
+                                <div class="text-l font-weight-bold text-uppercase mb-1 mt-3">
                                     <?=$user['nama']?>
                                 </div>
                                 <div class="h5 mb-0 font-weight-bold text-gray-800">
@@ -49,6 +50,9 @@
                   </div>
             </div>
             <?php endforeach ?>
+            
+
+            
 
         </div>
         <!-- End of Main Content -->

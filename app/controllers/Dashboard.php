@@ -1,6 +1,5 @@
 <?php 
 
-
 class Dashboard extends Controller{
     public function index()
     {
@@ -32,6 +31,35 @@ class Dashboard extends Controller{
         exit;
         }
     }
+
+    // Update
+    public function update($id_manageadmin){
+        if ($id_manageadmin > 0){
+            $data['admin'] = $this->model('Admin_model')->getIdAdmin($id_manageadmin);
+            var_dump($data['admin']);
+            die;
+        }
+    }
+
+    public function updateAdmin(){
+        if($this->model('Admin_model')->editAdmin($_POST) > 0){
+            echo "
+                <script>
+                window.location.href = '". BASEURL ."/dashboard';
+                alert('Data berhasil diubah');
+                </script>
+            ";
+        }
+        else {
+            echo "
+                <script>
+                    window.location.href = '". BASEURL ."/dashboard';
+                    alert('Data Tidak Berubah');
+                </script>
+            ";
+        }
+    }
+
     public function delete($id_manageadmin){
         if($this->model('Admin_model')->deleteAdmin($id_manageadmin) > 0){
             echo "
@@ -43,4 +71,10 @@ class Dashboard extends Controller{
             exit;
         }
     }
-}
+
+
+        public function ambildata($id_manageadmin){
+        $data = $this->model('Admin_model')->ambilDataJs($id_manageadmin);
+        echo json_encode($data);
+        }
+    }

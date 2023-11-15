@@ -23,12 +23,11 @@
     <div class="container">
         <!-- Content Row -->
 
-        <h1 class="h3 mb-0 text-gray-800 mt-2">Dashboard Admin</h1>
+        <h1 class="h3 mb-0 text-gray-800 mt-4">Kelola User</h1>
         
         <div class="row mt-4">
 
                
-          
             <!-- Card Content Start -->
             <!-- Card 1 -->
             <?php foreach ($data['user'] as $user) : ?>
@@ -51,7 +50,7 @@
                   <!--Button Edit-->
                         <div class="d-flex row no-gutters justify-content-end me-2">
                           <div class="col-auto">
-                          <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                          <button type="button" id="id_admin" data-id="<?=$user['id_manageadmin']?>" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal">
                             <i class="fas fa-fw fa-edit"></i>
                           </button>
 
@@ -66,22 +65,23 @@
                                 </div>
                                 <div class="modal-body">
                                   <div class="container">
-                                    <form>
+                                    <form action="<?=BASEURL?>/Dashboard/updateAdmin" method="POST" class="form-control" style="border:none !important;">
                                        <div class="form-group">
                                           <label for="FormControlInput">Nama</label>
-                                          <input type="text" class="form-control" id="FormControlInput">
+                                          <input type="hidden" name="id_manageadmin" class="form-control" id="id_manageadmin" value="">
+                                          <input type="text" name="nama" class="form-control" id="nama" value="">
                                         </div>
 
                                           <div class="form-group">
                                             <label for="exampleFormControlInput1">Jabatan</label>
-                                            <input type="email" class="form-control" id="exampleFormControlInput1">
+                                            <input type="text" name="jabatan" class="form-control" id="jabatan" value="">
                                           </div>
-                                    </form>
                                   </div>
                                 </div>
                                 <div class="modal-footer">
-                                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                                  <button type="button" class="btn btn-primary">Edit</button>
+                                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>    
+                                  <button type="submit" class="btn btn-primary">Edit</button>
+                                  </form>
                                 </div>
                               </div>
                             </div>

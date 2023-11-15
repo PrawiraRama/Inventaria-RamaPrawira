@@ -69,11 +69,17 @@ class Login extends Controller{
                 }
 
             } else {
-                echo 'gagal menemukan user';
+                echo "<script>
+                window.location.href = '". BASEURL ."/dashboard';
+                alert('User Tidak Ditemukan!');
+                </script>";
             }
 
         } else {
-            echo 'isikan data terlebih dahulu';
+            echo "<script>
+            window.location.href = '". BASEURL ."/dashboard';
+            alert('Harap Lengkapi Data!');
+                </script>";
         }
         
     }
